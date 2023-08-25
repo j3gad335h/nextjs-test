@@ -1,30 +1,28 @@
-
 import "@fontsource/tajawal";
-import { CssBaseline } from '@mui/material';
-import { createTheme } from '@mui/material/styles';
-import { ThemeProvider } from '@mui/system';
-import { appWithTranslation } from "next-i18next";
-import dynamic from "next/dynamic";
-import Head from 'next/head';
-import { useRouter } from 'next/router';
 import Router from "next/router";
-import React, { Suspense, useEffect, useState } from 'react';
+import { CssBaseline } from "@mui/material";
+import { createTheme } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/system";
+import { appWithTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import dynamic from "next/dynamic";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import React, { Suspense, useEffect, useState } from "react";
 import ReactGA from "react-ga4";
 import ScrollToTop from "react-scroll-to-top";
-import '../styles/Home.module.css';
-import '../styles/fonts.css';
+import "../styles/Home.module.css";
+import "../styles/fonts.css";
 import Loader from "../components/Loader/Loader";
-const Footer = dynamic(() => import('../components/Footer/Footer'));
-const FooterCopyRights = dynamic(() => import('../components/Footer/FooterCopyRights'));
-const NewHeader = dynamic(() => import('../components/Header/NewHeader'));
-
-
+const Footer = dynamic(() => import("../components/Footer/Footer"));
+const FooterCopyRights = dynamic(() => import("../components/Footer/FooterCopyRights"));
+const NewHeader = dynamic(() => import("../components/Header/NewHeader"));
 
 function App({ Component, pageProps }) {
   const { locale } = useRouter();
   const router = useRouter();
-  const [loading, setLoading] = React.useState(true);
-  const [showButton, setShowButton] = useState(100);
+  const [loading, setLoading] = useState(false);
+  const [fontsLoaded, setFontsLoaded] = useState(false);
   //UA-249956445-1//
   //UA-250103509-1//
   // G-JBD2HNXM4S//
@@ -34,9 +32,8 @@ function App({ Component, pageProps }) {
   // const TRACKING_ID = "UA-250103509-1";
   ReactGA.initialize(TRACKING_ID);
   useEffect(() => {
-    document.documentElement.dir = locale === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.dir = locale === "ar" ? "rtl" : "ltr";
   }, [locale]);
-
   useEffect(() => {
     Router.events.on("routeChangeStart", () => setLoading(true));
     Router.events.on("routeChangeComplete", () => setLoading(false));
@@ -47,37 +44,39 @@ function App({ Component, pageProps }) {
       Router.events.off("routeChangeError", () => setLoading(false));
     };
   }, [Router.events]);
+  useEffect(() => {
+    // Font is considered loaded when "document.fonts" has been populated
+    if (document.fonts && document.fonts.status === "loaded") {
+      setFontsLoaded(true);
+    } else {
+      // If fonts aren't immediately loaded, listen for the "fontloadingdone" event
+      document.fonts.addEventListener("loadingdone", () => {
+        setFontsLoaded(true);
+      });
+    }
+  }, []);
   const theme = createTheme({
     typography: {
-      fontFamily: locale === 'ar' ? 'Tajawal' : 'Ample',
-      letterSpacing: '0.00938em !important',
+      fontFamily: locale === "ar" ? "Tajawal" : "Ample",
+      letterSpacing: "0.00938em !important",
       lineHeight: " 1.5 !important",
     },
     MuiTypography: {
       styleOverrides: {
         root: {
-          letterSpacing: '0.00938em !important',
+          letterSpacing: "0.00938em !important",
           lineHeight: " 1.5 !important",
-        }
-      }
-
+        },
+      },
     },
     MuiGrid: {
       styleOverrides: {
         root: {
-          marigin: '0px'
-        }
-      }
-
-    }
-
-
+          marigin: "0px",
+        },
+      },
+    },
   });
-
-  React.useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2000);
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <ThemeProvider theme={theme}>
@@ -88,17 +87,34 @@ function App({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content="Crowdfunding in Saudi Arabia | SME Crowd Lending in Saudi Arabia" />
       </Head>
-      <Suspense >
-        <NewHeader />
-        <CssBaseline />
-        {/* <Component {...pageProps} /> */}
-        {loading ? <Loader /> : <Component {...pageProps} />}
-        <Footer />
-        <ScrollToTop smooth color="#37A753" />
-        <FooterCopyRights />
-      </Suspense>
+      <CssBaseline />
+      <div className="page-content">
+        {/* Content that doesn't affect layout */}
+        <div className="header-container">{fontsLoaded && <NewHeader />}</div>
+        {/* Main content */}
+        <div className="main-content">
+          <Suspense>
+            {/* Loading state for main content */}
+            {loading || !fontsLoaded ? <Loader /> : <Component {...pageProps} />}
+          </Suspense>
+        </div>
+        {/* Footer */}
+        <div className="footer-container">
+          {fontsLoaded && <FooterCopyRights />}
+          {fontsLoaded && <Footer />}
+          {fontsLoaded && <ScrollToTop smooth color="#37A753" />}
+        </div>
+      </div>
     </ThemeProvider>
-  )
-
+  );
 }
 export default appWithTranslation(App);
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common", "footer"])),
+      // Will be passed to the page component as props
+    },
+  };
+}
