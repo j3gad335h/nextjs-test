@@ -6,3 +6,9 @@
 body{
   width: 100% !important;
 }
+.lazy-background-image {
+  transition: background-image 0.3s;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

@@ -7,22 +7,33 @@
 .MuiCheckbox-colorPrimary.Mui-checked {
   color: #37a753;
 }
-.Mui-selected{
-    color: black !important;
+
+.Mui-selected {
+  color: black !important;
 }
-.MuiTabs-indicator{
+
+.MuiTabs-indicator {
   border-right: 3px solid #00d8ff;
   color: black;
 }
 
-.Mui-checked{
+.Mui-checked {
   color: #37a753 !important;
 }
-body{
+
+body {
   letter-spacing: 0.00938em !important
 }
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.lazy-background-image {
+  transition: background-image 0.3s;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
