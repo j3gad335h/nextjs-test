@@ -104,7 +104,7 @@ export default function HomeHowItWorks() {
                 <Box py={5}>
                     <Grid container spacing={2}>
                         <Grid className={classes.servicImageeGrid} item xs={12} sm={12} md={12} lg={12} xl={12}>
-                            <Image alt="finance-icon" height={veryWideScreen? 320: 120} width={veryWideScreen? 936: 350}  src={getImage()} />
+                            <Image loading='lazy' alt="finance-icon" height={veryWideScreen? 320: 120} width={veryWideScreen? 936: 350}  src={getImage()}  />
                         </Grid>
                     </Grid>
                 </Box>
@@ -130,7 +130,7 @@ export default function HomeHowItWorks() {
                             justifyContent: 'center',
                             alignItems: 'center',}}>
 
-                            <Image height={veryWideScreen? 230: 150} width={veryWideScreen? 230: 150} alt="icon"  src={image1} />
+                            <Image loading='lazy' height={veryWideScreen? 230: 150} width={veryWideScreen? 230: 150} alt="icon"  src={image1} />
                         </Box>
                         <Typography className={classes.workstittle}
                             style={{ display: width === 'width1' ? 'none' : null, marginTop: width !== 'width1' && 100, }}></Typography>
@@ -154,7 +154,7 @@ export default function HomeHowItWorks() {
                                 alignItems: 'center',
                             }}>
                             <Box>
-                                <Image height={veryWideScreen? 230: 150} width={veryWideScreen? 230: 150} alt="icon"  src={image2} />
+                                <Image loading='lazy' height={veryWideScreen? 230: 150} width={veryWideScreen? 230: 150} alt="icon"  src={image2} />
                             </Box>
                         </Box>
                         <Typography
@@ -181,7 +181,7 @@ export default function HomeHowItWorks() {
                                 alignItems: 'center',
                             }}
                         >
-                            <Image height={veryWideScreen? 230: 150} width={veryWideScreen? 230: 150} alt="icon"  src={image3} />
+                            <Image loading='lazy' height={veryWideScreen? 230: 150} width={veryWideScreen? 230: 150} alt="icon"  src={image3} />
                         </Box>
                         <Typography
                             className={classes.workstittle}
@@ -214,7 +214,7 @@ export default function HomeHowItWorks() {
                                 justifyContent: 'center',
                                 alignItems: 'center',
                             }}>
-                            <Image height={veryWideScreen? 230: 150} width={veryWideScreen? 230: 150} alt="icon"  src={image4} />
+                            <Image loading='lazy' height={veryWideScreen? 230: 150} width={veryWideScreen? 230: 150} alt="icon"  src={image4} />
                         </Box>
                         <Typography
                             className={classes.workstittle}
