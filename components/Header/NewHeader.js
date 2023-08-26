@@ -1,3 +1,4 @@
+import { makeStyles } from "@mui/styles";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Container, Grid, Hidden } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
@@ -8,7 +9,7 @@ import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import Toolbar from "@mui/material/Toolbar";
-import { makeStyles } from "@mui/styles";
+
 import { useTranslation } from "next-i18next";
 import Image from "next/image";
 import Link from "next/link";
@@ -297,8 +298,6 @@ const useStyles = makeStyles((theme, locale) => ({
   },
   list: {
     position: "relative",
-    //   right: locale === "en" ? "0px" : "150px",
-    //   left: locale === "en" ? "0px" : "150px",
     fontSize: "14px",
     marginLeft: "10px",
     paddingLeft: "0",

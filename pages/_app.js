@@ -79,25 +79,27 @@ function App({ Component, pageProps }) {
   });
 
   return (
-    <ThemeProvider theme={theme}>
-      <Head>
-        <title>Raqamyah | رقمية - Crowdfunding in Saudi Arabia | SME Crowd Lending in Saudi Arabia</title>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="description" content="Crowdfunding in Saudi Arabia | SME Crowd Lending in Saudi Arabia" />
-        <link rel="preload" href="/font/Ample-Regular6_0.otf" as="font" type="font/otf" crossOrigin="anonymous" />
-        <link rel="preload" href="/font/Tajawal-Regular.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
-        <link rel="stylesheet" href="/globalstyle.css" as="style" />
-      </Head>
-      <CssBaseline />
-      <NewHeader />
-      {/* {fontsLoaded && <NewHeader />} */}
-      <Component {...pageProps} />
-      <FooterCopyRights />
-      <ScrollToTop smooth color="#37A753" />
-      <Footer />
-    </ThemeProvider>
+    <>
+      <ThemeProvider theme={theme}>
+        <Head>
+          <title>Raqamyah | رقمية - Crowdfunding in Saudi Arabia | SME Crowd Lending in Saudi Arabia</title>
+          <meta charSet="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <link rel="icon" href="/favicon.ico" />
+          <meta name="description" content="Crowdfunding in Saudi Arabia | SME Crowd Lending in Saudi Arabia" />
+          <link rel="preload" href="/font/Ample-Regular6_0.otf" as="font" type="font/otf" crossOrigin="anonymous" />
+          <link rel="preload" href="/font/Tajawal-Regular.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
+          <link rel="stylesheet" href="/globalstyle.css" as="style" />
+        </Head>
+        <CssBaseline />
+        <NewHeader />
+        {/* {fontsLoaded && <NewHeader />} */}
+        <Component {...pageProps} />
+        <FooterCopyRights />
+        <ScrollToTop smooth color="#37A753" />
+        <Footer />
+      </ThemeProvider>
+    </>
   );
 }
 export default appWithTranslation(App);
