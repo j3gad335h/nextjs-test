@@ -14,9 +14,9 @@ import ScrollToTop from "react-scroll-to-top";
 import "../styles/Home.module.css";
 import "../styles/fonts.css";
 import Loader from "../components/Loader/Loader";
+const NewHeader = dynamic(() => import("../components/Header/NewHeader"));
 const Footer = dynamic(() => import("../components/Footer/Footer"));
 const FooterCopyRights = dynamic(() => import("../components/Footer/FooterCopyRights"));
-const NewHeader = dynamic(() => import("../components/Header/NewHeader"));
 
 function App({ Component, pageProps }) {
   const { locale } = useRouter();
@@ -57,7 +57,7 @@ function App({ Component, pageProps }) {
   }, []);
   const theme = createTheme({
     typography: {
-      fontFamily: locale === "ar" ? "Tajawal" : "Ample",
+      fontFamily: locale === "ar" ? "Tajwal-local" : "Ample",
       letterSpacing: "0.00938em !important",
       lineHeight: " 1.5 !important",
     },
@@ -86,14 +86,17 @@ function App({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content="Crowdfunding in Saudi Arabia | SME Crowd Lending in Saudi Arabia" />
+        <link rel="preload" href="/font/Ample-Regular6_0.otf" as="font" type="font/otf" crossOrigin="anonymous" />
+        <link rel="preload" href="/font/Tajawal-Regular.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
+        <link rel="stylesheet" href="/globalstyle.css" as="style" />
       </Head>
       <CssBaseline />
-      {fontsLoaded && <NewHeader />}
-      {fontsLoaded && <Component {...pageProps} />}
-
-      {fontsLoaded && <FooterCopyRights />}
-      {fontsLoaded && <Footer />}
-      {fontsLoaded && <ScrollToTop smooth color="#37A753" />}
+      <NewHeader />
+      {/* {fontsLoaded && <NewHeader />} */}
+      <Component {...pageProps} />
+      <FooterCopyRights />
+      <ScrollToTop smooth color="#37A753" />
+      <Footer />
     </ThemeProvider>
   );
 }
