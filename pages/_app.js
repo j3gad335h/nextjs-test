@@ -1,4 +1,5 @@
 import "@fontsource/tajawal";
+const NewHeader = dynamic(() => import("../components/Header/NewHeader"));
 import Router from "next/router";
 import { CssBaseline } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
@@ -14,7 +15,6 @@ import ScrollToTop from "react-scroll-to-top";
 import "../styles/Home.module.css";
 import "../styles/fonts.css";
 import Loader from "../components/Loader/Loader";
-const NewHeader = dynamic(() => import("../components/Header/NewHeader"));
 const Footer = dynamic(() => import("../components/Footer/Footer"));
 const FooterCopyRights = dynamic(() => import("../components/Footer/FooterCopyRights"));
 
