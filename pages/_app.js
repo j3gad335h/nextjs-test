@@ -58,9 +58,7 @@ function App({ Component, pageProps }) {
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <link rel="icon" href="/favicon.ico" />
           <meta name="description" content="Crowdfunding in Saudi Arabia | SME Crowd Lending in Saudi Arabia" />
-          <link rel="preload" href="/font/Ample-Regular6_0.otf" as="font" type="font/otf" crossOrigin="anonymous" />
-          <link rel="preload" href="/font/Tajawal-Regular.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
-          <link rel="stylesheet" href="/globalstyle.css" as="style" />
+          
         </Head>
         <CssBaseline />
         <NewHeader />

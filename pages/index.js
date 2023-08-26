@@ -1,5 +1,8 @@
-import { Container, Grid, Typography } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+const HomeBanner = dynamic(() => import("../page-section/Home/HomeBanner"));
+const HomeService = dynamic(() => import("../page-section/Home/HomeService"));
+const HomeWereHere = dynamic(() => import("../page-section/Home/HomeWereHere"));
+const HomeFinanceSolution = dynamic(() => import("../page-section/Home/HomeFinanceSolution"));
+const HomeHowItWorks = dynamic(() => import("../page-section/Home/HomeHowItWorks"));
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import getConfig from "next/config";
@@ -10,11 +13,8 @@ import { useEffect } from "react";
 import ReactGA from "react-ga4";
 import useTwitterPixel from "../TwitterPixel";
 import BaseUrl from "../baseUrl";
-const HomeBanner = dynamic(() => import("../page-section/Home/HomeBanner"));
-const HomeService = dynamic(() => import("../page-section/Home/HomeService"));
-const HomeWereHere = dynamic(() => import("../page-section/Home/HomeWereHere"));
-const HomeFinanceSolution = dynamic(() => import("../page-section/Home/HomeFinanceSolution"));
-const HomeHowItWorks = dynamic(() => import("../page-section/Home/HomeHowItWorks"));
+import { makeStyles } from "@mui/styles";
+import { Container, Grid, Typography } from "@mui/material";
 // const HomeBanner = dynamic(() => import('../page-section/Home/HomeBanner'), {
 //   loading: () => <p>Loading...</p>, // This is the loading indicator
 // });

@@ -3,7 +3,11 @@
   font-display: swap;
   src: local('Ample'), url(../public/font/Ample-Regular6_0.otf) format('truetype');
 }
-
+@font-face {
+  font-family: 'Tajwal-local';
+  font-display: swap;
+  src: local('Tajwal-local'), url(/font/Tajawal-Regular.ttf) format('truetype');
+}
 .MuiCheckbox-colorPrimary.Mui-checked {
   color: #37a753;
 }

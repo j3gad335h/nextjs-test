@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import LanguageIcon from "@mui/icons-material/Language";
 import { makeStyles } from "@mui/styles";
+import LanguageIcon from "@mui/icons-material/Language";
+
 
 export default function LocaleSwitcher() {
   const router = useRouter();

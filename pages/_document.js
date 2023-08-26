@@ -13,10 +13,8 @@ function MyDocument(props) {
   }, []);
 
   return (
-    <Html dir={locale === 'ar' ? 'rtl' : 'ltr'} lang={locale}>
+    <Html dir={locale === "ar" ? "rtl" : "ltr"} lang={locale}>
       <Head>
-        <link rel="preload" href="/font/Ample-Regular6_0.otf" as="font" type="font/otf" crossOrigin="anonymous" />
-        <link rel="preload" href="/font/Tajawal-Regular.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
         <link rel="stylesheet" href="/globalstyle.css" as="style" />
         <script
           dangerouslySetInnerHTML={{

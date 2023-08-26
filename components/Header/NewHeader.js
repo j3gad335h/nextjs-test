@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "next-i18next";
 import PropTypes from "prop-types";
 import Image from "next/image";
@@ -261,11 +261,10 @@ function NewHeader(props) {
   const supplyChain = "/assetsNew/images/MenuIcons/production.webp";
   const classes = useStyles();
   const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const router = useRouter();
   const { locale } = useRouter();
   const { t } = useTranslation("common");
-  const [isLoading, setIsLoading] = React.useState(true);
   const headerContent = [
     {
       menu: "1",
