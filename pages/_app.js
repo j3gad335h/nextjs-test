@@ -34,7 +34,7 @@ function App({ Component, pageProps }) {
 
   const theme = createTheme({
     typography: {
-      fontFamily: locale === "ar" ? "Tajawal" : "Ample",
+      fontFamily: locale === "ar" ? "Tajwal-local" : "Ample",
       letterSpacing: "0.00938em !important",
       lineHeight: " 1.5 !important",
     },

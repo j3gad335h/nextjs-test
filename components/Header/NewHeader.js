@@ -20,6 +20,7 @@ import Logo from "../Logo/Logo";
 import ScmLoginButton from "../ScmLoginButton";
 import LocaleSwitcher from "../language-switcher";
 import { ThemeProvider } from "@mui/system";
+import { useTheme } from "@mui/styles";
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme, locale) => ({
@@ -264,13 +265,15 @@ function NewHeader(props) {
   const contactIcon = "/assetsNew/images/MenuIcons/contactIcons.webp";
   const SmesIcon = "/assetsNew/images/MenuIcons/balance.webp";
   const supplyChain = "/assetsNew/images/MenuIcons/production.webp";
-  const classes = useStyles();
+  const theme = useTheme();
+  const { locale } = useRouter();
+  const classes = useStyles(locale,theme);
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const router = useRouter();
-  const { locale } = useRouter();
+
   const { t } = useTranslation("common");
-  const [isLoading, setIsLoading] = React.useState(true);
+
   const headerContent = [
     {
       menu: "1",
