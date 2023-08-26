@@ -1,12 +1,13 @@
-import makeStyles from '@mui/styles/makeStyles';
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
+import makeStyles from "@mui/styles/makeStyles";
+
 const useStyles = makeStyles((theme) => ({
   logo: {
-    width: '120px',
-    height: '60px',
-    position: 'relative',
+    width: "120px",
+    height: "60px",
+    position: "relative",
   },
 }));
 

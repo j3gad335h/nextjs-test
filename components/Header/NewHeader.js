@@ -1,3 +1,12 @@
+import * as React from "react";
+import { useTranslation } from "next-i18next";
+import PropTypes from "prop-types";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import LoginButton from "../LoginButton";
+import Logo from "../Logo/Logo";
+import ScmLoginButton from "../ScmLoginButton";
+import LocaleSwitcher from "../language-switcher";
 import { makeStyles } from "@mui/styles";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Container, Grid, Hidden } from "@mui/material";
@@ -10,17 +19,6 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import Toolbar from "@mui/material/Toolbar";
 
-import { useTranslation } from "next-i18next";
-import Image from "next/image";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import PropTypes from "prop-types";
-import * as React from "react";
-import LoginButton from "../LoginButton";
-import Logo from "../Logo/Logo";
-import ScmLoginButton from "../ScmLoginButton";
-import LocaleSwitcher from "../language-switcher";
-import { ThemeProvider } from "@mui/system";
 const drawerWidth = 240;
 const useStyles = makeStyles((theme, locale) => ({
   buttonToolbar: {
@@ -366,13 +364,6 @@ function NewHeader(props) {
                 <LoginButton />
               </Grid>
             </Grid>
-            {/* <Box className={classes.scmButtonToolbarBox}>
-                            <ScmLoginButton />
-                        </Box>
-                        <Box className={classes.buttonToolbarBox}>
-                            <LocaleSwitcher />
-                            <LoginButton />
-                        </Box> */}
           </Container>
         </Toolbar>
         <Toolbar className={classes.menuToolbar}>
