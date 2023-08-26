@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Disallow: /<page-url>
+
+# Host
+Host: https://www.raqamyah.com/
+
+# Sitemaps
+Sitemap: https://www.raqamyah.com/sitemap.xml

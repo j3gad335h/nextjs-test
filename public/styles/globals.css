@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'AmpleSoftPro';
+  font-display: swap;
+  src: local('Ample-Regular'), url(../public/font/AmpleSoftPro.ttf) format('truetype');
+}
+body{
+  width: 100% !important;
+}
