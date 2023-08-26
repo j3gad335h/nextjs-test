@@ -1,3 +1,5 @@
+import "@fontsource/tajawal";
+import Router from "next/router";
 import { CssBaseline } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@mui/system";
@@ -6,19 +8,33 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import React, { useEffect } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import ReactGA from "react-ga4";
 import ScrollToTop from "react-scroll-to-top";
-
+import "../styles/Home.module.css";
+import "../styles/fonts.css";
 const Footer = dynamic(() => import("../components/Footer/Footer"));
 const FooterCopyRights = dynamic(() => import("../components/Footer/FooterCopyRights"));
 const NewHeader = dynamic(() => import("../components/Header/NewHeader"));
 
 function App({ Component, pageProps }) {
   const { locale } = useRouter();
+
+  //UA-249956445-1//
+  //UA-250103509-1//
+  // G-JBD2HNXM4S//
+  // G-ELZDSSFFXD
+  //FMD2181M8B
+  const TRACKING_ID = "G-JBD2HNXM4S";
+  // const TRACKING_ID = "UA-250103509-1";
+  ReactGA.initialize(TRACKING_ID);
+  useEffect(() => {
+    document.documentElement.dir = locale === "ar" ? "rtl" : "ltr";
+  }, [locale]);
+
   const theme = createTheme({
     typography: {
-      fontFamily: locale === "ar" ? "Tajwal-local" : "Ample",
+      fontFamily: locale === "ar" ? "Tajawal" : "Ample",
       letterSpacing: "0.00938em !important",
       lineHeight: " 1.5 !important",
     },
@@ -39,10 +55,6 @@ function App({ Component, pageProps }) {
     },
   });
 
-  useEffect(() => {
-    document.documentElement.dir = locale === "ar" ? "rtl" : "ltr";
-  }, [locale]);
-
   return (
     <ThemeProvider theme={theme}>
       <Head>
@@ -50,29 +62,14 @@ function App({ Component, pageProps }) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
-        <link rel="preload" href="/font/Ample-Regular6_0.otf" as="font" type="font/otf" crossOrigin="anonymous" />
-        <link rel="preload" href="/font/Tajawal-Regular.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
-        <link rel="stylesheet" href="/globalstyle.css" as="style" />
         <meta name="description" content="Crowdfunding in Saudi Arabia | SME Crowd Lending in Saudi Arabia" />
       </Head>
       <CssBaseline />
-      <div className="page-content">
-        {/* Content that doesn't affect layout */}
-        <div className="header-container">
-          <NewHeader />
-        </div>
-        {/* Main content */}
-        <div className="main-content">
-          {/* Loading state for main content */}
-          <Component {...pageProps} />
-        </div>
-        {/* Footer */}
-        <div className="footer-container">
-          <Footer />
-          <ScrollToTop smooth color="#37A753" />
-          <FooterCopyRights />
-        </div>
-      </div>
+      <NewHeader />
+      <Component {...pageProps} />
+      <FooterCopyRights />
+      <Footer />
+      <ScrollToTop smooth color="#37A753" />
     </ThemeProvider>
   );
 }

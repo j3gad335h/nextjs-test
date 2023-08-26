@@ -2,7 +2,8 @@ import { ServerStyleSheets } from "@mui/styles";
 import Document, { Head, Html, Main, NextScript } from "next/document";
 import React, { useEffect } from "react";
 
-function MyDocument() {
+function MyDocument(props) {
+  const { locale } = props;
   useEffect(() => {
     // Remove the server-side injected CSS once the client-side takes over
     const jssStyles = document.querySelector("#jss-server-side");
@@ -12,7 +13,7 @@ function MyDocument() {
   }, []);
 
   return (
-    <Html>
+    <Html dir={locale === 'ar' ? 'rtl' : 'ltr'} lang={locale}>
       <Head>
         <link rel="preload" href="/font/Ample-Regular6_0.otf" as="font" type="font/otf" crossOrigin="anonymous" />
         <link rel="preload" href="/font/Tajawal-Regular.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />

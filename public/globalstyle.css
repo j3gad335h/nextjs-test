@@ -9,21 +9,3 @@
     font-display: swap;
     src: local('Ample'), url(/font/Ample-Regular6_0.otf) format('truetype');
 }
-
-
-.page-content {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    /* Ensure the content spans at least the height of the viewport */
-}
-
-.header-container,
-.main-content,
-.footer-container {
-    width: 100%;
-
-}
-.fonts-loading {
-    visibility: hidden;
-  }
