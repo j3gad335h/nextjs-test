@@ -13,13 +13,16 @@ import ReactGA from "react-ga4";
 import ScrollToTop from "react-scroll-to-top";
 import "../styles/Home.module.css";
 import "../styles/fonts.css";
+import Loader from "../components/Loader/Loader";
 const Footer = dynamic(() => import("../components/Footer/Footer"));
 const FooterCopyRights = dynamic(() => import("../components/Footer/FooterCopyRights"));
 const NewHeader = dynamic(() => import("../components/Header/NewHeader"));
 
 function App({ Component, pageProps }) {
   const { locale } = useRouter();
-
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const [fontsLoaded, setFontsLoaded] = useState(false);
   //UA-249956445-1//
   //UA-250103509-1//
   // G-JBD2HNXM4S//
@@ -31,10 +34,30 @@ function App({ Component, pageProps }) {
   useEffect(() => {
     document.documentElement.dir = locale === "ar" ? "rtl" : "ltr";
   }, [locale]);
-
+  useEffect(() => {
+    Router.events.on("routeChangeStart", () => setLoading(true));
+    Router.events.on("routeChangeComplete", () => setLoading(false));
+    Router.events.on("routeChangeError", () => setLoading(false));
+    return () => {
+      Router.events.off("routeChangeStart", () => setLoading(true));
+      Router.events.off("routeChangeComplete", () => setLoading(false));
+      Router.events.off("routeChangeError", () => setLoading(false));
+    };
+  }, [Router.events]);
+  useEffect(() => {
+    // Font is considered loaded when "document.fonts" has been populated
+    if (document.fonts && document.fonts.status === "loaded") {
+      setFontsLoaded(true);
+    } else {
+      // If fonts aren't immediately loaded, listen for the "fontloadingdone" event
+      document.fonts.addEventListener("loadingdone", () => {
+        setFontsLoaded(true);
+      });
+    }
+  }, []);
   const theme = createTheme({
     typography: {
-      fontFamily: locale === "ar" ? "Tajwal-local" : "Ample",
+      fontFamily: locale === "ar" ? "Tajawal" : "Ample",
       letterSpacing: "0.00938em !important",
       lineHeight: " 1.5 !important",
     },
@@ -65,11 +88,12 @@ function App({ Component, pageProps }) {
         <meta name="description" content="Crowdfunding in Saudi Arabia | SME Crowd Lending in Saudi Arabia" />
       </Head>
       <CssBaseline />
-      <NewHeader />
-      <Component {...pageProps} />
-      <FooterCopyRights />
-      <Footer />
-      <ScrollToTop smooth color="#37A753" />
+      {fontsLoaded && <NewHeader />}
+      {fontsLoaded && <Component {...pageProps} />}
+
+      {fontsLoaded && <FooterCopyRights />}
+      {fontsLoaded && <Footer />}
+      {fontsLoaded && <ScrollToTop smooth color="#37A753" />}
     </ThemeProvider>
   );
 }
