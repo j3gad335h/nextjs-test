@@ -22,189 +22,11 @@ import ScmLoginButton from "../ScmLoginButton";
 import LocaleSwitcher from "../language-switcher";
 import { ThemeProvider } from "@mui/system";
 const drawerWidth = 240;
-
-function NewHeader(props) {
-  const getFinanceIcon = "/assetsNew/images/MenuIcons/getFinacneIcons.webp";
-  const financeIcon = "/assetsNew/images/MenuIcons/financeIcons.webp";
-  const posFinanceIcon = "/assetsNew/images/MenuIcons/posFinanceIcons.webp";
-  const howItWorksIcon = "/assetsNew/images/MenuIcons/howItWorksIcons.webp";
-  const aboutIcon = "/assetsNew/images/MenuIcons/aboutIcon.webp";
-  const contactIcon = "/assetsNew/images/MenuIcons/contactIcons.webp";
-  const SmesIcon = "/assetsNew/images/MenuIcons/balance.webp";
-  const supplyChain = "/assetsNew/images/MenuIcons/production.webp";
-  const classes = useStyles();
-  const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-  const router = useRouter();
-  const { locale } = useRouter();
-  const { t } = useTranslation("common");
-  const [isLoading, setIsLoading] = React.useState(true);
-  const headerContent = [
-    {
-      menu: "1",
-      link: `getFinanced`,
-      pageName: locale === "en" ? "Get Financed" : "تقدم بطلب تمويل",
-      icon: <Image width={25} height={25} alt="getFinanceIcon" src={getFinanceIcon} />,
-    },
-    {
-      menu: "2",
-      link: `finance`,
-      pageName: locale === "en" ? "Finance" : "ابدأ بالتمويل",
-      icon: <Image width={25} height={25} alt="financeIcon" src={financeIcon} />,
-    },
-    {
-      menu: "3",
-      link: `posFinance`,
-      pageName: locale === "en" ? "Pos Finance" : "تمويل نقاط البيع",
-      icon: <Image width={25} height={25} alt="posFinanceIcon" src={posFinanceIcon} />,
-    },
-    {
-      menu: "4",
-      link: `smes`,
-      pageName: locale === "en" ? "Financing Rates" : "أسعار المنتجات",
-      icon: <Image width={25} height={25} alt="Supplychain" src={SmesIcon} />,
-    },
-    {
-      menu: "5",
-      link: `supplyChain`,
-      pageName: locale === "en" ? "Supply Chain" : "سلاسل الامداد",
-      icon: <Image width={25} height={25} alt="supplyChain" src={supplyChain} />,
-    },
-    {
-      menu: "5",
-      link: `howItWorks`,
-      pageName: locale === "en" ? "How It Works" : "كيف تعمل المنصة",
-      icon: <Image width={25} height={25} alt="howItWorksIcon" src={howItWorksIcon} />,
-    },
-    {
-      menu: "6",
-      link: `about`,
-      pageName: locale === "en" ? "About" : "عن رقمية",
-      icon: <Image width={25} height={25} alt="aboutIcon" src={aboutIcon} />,
-    },
-    {
-      menu: "7",
-      link: `contactUs`,
-      pageName: locale === "en" ? "Contact Us" : "تواصل معنا",
-      icon: <Image width={25} height={25} alt="contactIcon" src={contactIcon} />,
-    },
-  ];
-  const handleDrawerToggle = () => {
-    setMobileOpen((prevState) => !prevState);
-  };
-
-  const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Box sx={{ my: 2 }}>
-        <Logo />
-      </Box>
-      <Divider />
-
-      <List variant="ul" className={classes.list}>
-        {headerContent.map((item, index) => (
-          <div key={index}>
-            <ListItem variant="li" className={classes.listItem}>
-              <span className={classes.MenuIcons}>{item.icon}</span>
-              <a className={classes.navLink} href={`/${locale}/${item.link}`} style={{ borderBottom: router.pathname.includes(item.link) && "2px solid #3AB15F", borderRadius: "none !important", width: "auto" }} key={index}>
-                {t(`${item.pageName}`)}
-              </a>
-            </ListItem>
-
-            {index !== headerContent.length - 1 && (
-              <ListItem variant="li" className={classes.listItem}>
-                <div className={classes.divider} />
-              </ListItem>
-            )}
-          </div>
-        ))}
-      </List>
-    </Box>
-  );
-
-  const container = window !== undefined ? () => window().document.body : undefined;
-
-  return (
-    <Box sx={{ display: "flex" }}>
-      <AppBar component="nav">
-        <Toolbar className={classes.buttonToolbar}>
-          <Container className={classes.buttonContainer}>
-            <Grid style={{ display: "contents" }} container spacing={2}>
-              <Grid className={classes.scmButtonToolbarBox} item sm={12} md={12}>
-                <ScmLoginButton />
-              </Grid>
-              <Grid className={classes.buttonToolbarBox} item sm={12} md={12}>
-                <LocaleSwitcher />
-                <LoginButton />
-              </Grid>
-            </Grid>
-            {/* <Box className={classes.scmButtonToolbarBox}>
-                            <ScmLoginButton />
-                        </Box>
-                        <Box className={classes.buttonToolbarBox}>
-                            <LocaleSwitcher />
-                            <LoginButton />
-                        </Box> */}
-          </Container>
-        </Toolbar>
-        <Toolbar className={classes.menuToolbar}>
-          <Container className={classes.menuContainer}>
-            <Box sx={{ flexGrow: 1, display: { sm: "block" } }}>
-              <Logo />
-            </Box>
-            <IconButton color="#000" aria-label="open drawer" edge="start" onClick={handleDrawerToggle} sx={{ margin: "0px 16px 0px 16px", display: { lg: "none" } }}>
-              <MenuIcon style={{ margin: "0px 16px 0px 16px", color: "#000", fontSize: "30px" }} />
-            </IconButton>
-
-            <Hidden lgDown implementation="css">
-              <Box>
-                <List variant="ul" className={classes.list}>
-                  {headerContent.map((item, index) => (
-                    <div key={index}>
-                      <ListItem variant="li" className={classes.listItem}>
-                        <a className={classes.navLink} href={`/${locale}/${item.link}`} style={{ borderBottom: router.pathname.includes(item.link) && "2px solid #3AB15F", borderRadius: "none !important", width: "auto" }} key={item.menu}>
-                          {t(`${item.pageName}`)}
-                        </a>
-                        {index !== headerContent.length - 1 && <div className={classes.divider} />}
-                      </ListItem>
-                    </div>
-                  ))}
-                </List>
-              </Box>
-            </Hidden>
-          </Container>
-        </Toolbar>
-      </AppBar>
-      <Hidden lgUp implementation="js">
-        <Box component="nav">
-          <Drawer
-            container={container}
-            variant="temporary"
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
-            sx={{
-              display: { xs: "block", lg: "none" },
-              "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
-            }}>
-            {drawer}
-          </Drawer>
-        </Box>
-      </Hidden>
-    </Box>
-  );
-}
-
-NewHeader.propTypes = {
-  window: PropTypes.func,
-};
 const useStyles = makeStyles((theme, locale) => ({
   buttonToolbar: {
     background: "linear-gradient(0.25turn, #28A4DB, #3AB15F) !important",
     minHeight: "40px !important",
     display: "flex",
-    justifyContent: "end",
   },
   buttonToolbarBox: {
     display: "flex",
@@ -244,7 +66,7 @@ const useStyles = makeStyles((theme, locale) => ({
     },
   },
   buttonContainer: {
-    display: "inline-flex",
+    display: "flex",
     justifyContent: locale === "en" ? "end" : "end",
     padding: "0px !important",
   },
@@ -430,4 +252,181 @@ const useStyles = makeStyles((theme, locale) => ({
     },
   },
 }));
+function NewHeader(props) {
+  const getFinanceIcon = "/assetsNew/images/MenuIcons/getFinacneIcons.webp";
+  const financeIcon = "/assetsNew/images/MenuIcons/financeIcons.webp";
+  const posFinanceIcon = "/assetsNew/images/MenuIcons/posFinanceIcons.webp";
+  const howItWorksIcon = "/assetsNew/images/MenuIcons/howItWorksIcons.webp";
+  const aboutIcon = "/assetsNew/images/MenuIcons/aboutIcon.webp";
+  const contactIcon = "/assetsNew/images/MenuIcons/contactIcons.webp";
+  const SmesIcon = "/assetsNew/images/MenuIcons/balance.webp";
+  const supplyChain = "/assetsNew/images/MenuIcons/production.webp";
+  const classes = useStyles();
+  const { window } = props;
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const router = useRouter();
+  const { locale } = useRouter();
+  const { t } = useTranslation("common");
+  const [isLoading, setIsLoading] = React.useState(true);
+  const headerContent = [
+    {
+      menu: "1",
+      link: `getFinanced`,
+      pageName: locale === "en" ? "Get Financed" : "تقدم بطلب تمويل",
+      icon: <Image width={25} height={25} alt="getFinanceIcon" src={getFinanceIcon} />,
+    },
+    {
+      menu: "2",
+      link: `finance`,
+      pageName: locale === "en" ? "Finance" : "ابدأ بالتمويل",
+      icon: <Image width={25} height={25} alt="financeIcon" src={financeIcon} />,
+    },
+    {
+      menu: "3",
+      link: `posFinance`,
+      pageName: locale === "en" ? "Pos Finance" : "تمويل نقاط البيع",
+      icon: <Image width={25} height={25} alt="posFinanceIcon" src={posFinanceIcon} />,
+    },
+    {
+      menu: "4",
+      link: `smes`,
+      pageName: locale === "en" ? "Financing Rates" : "أسعار المنتجات",
+      icon: <Image width={25} height={25} alt="Supplychain" src={SmesIcon} />,
+    },
+    {
+      menu: "5",
+      link: `supplyChain`,
+      pageName: locale === "en" ? "Supply Chain" : "سلاسل الامداد",
+      icon: <Image width={25} height={25} alt="supplyChain" src={supplyChain} />,
+    },
+    {
+      menu: "5",
+      link: `howItWorks`,
+      pageName: locale === "en" ? "How It Works" : "كيف تعمل المنصة",
+      icon: <Image width={25} height={25} alt="howItWorksIcon" src={howItWorksIcon} />,
+    },
+    {
+      menu: "6",
+      link: `about`,
+      pageName: locale === "en" ? "About" : "عن رقمية",
+      icon: <Image width={25} height={25} alt="aboutIcon" src={aboutIcon} />,
+    },
+    {
+      menu: "7",
+      link: `contactUs`,
+      pageName: locale === "en" ? "Contact Us" : "تواصل معنا",
+      icon: <Image width={25} height={25} alt="contactIcon" src={contactIcon} />,
+    },
+  ];
+  const handleDrawerToggle = () => {
+    setMobileOpen((prevState) => !prevState);
+  };
+
+  const drawer = (
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+      <Box sx={{ my: 2 }}>
+        <Logo />
+      </Box>
+      <Divider />
+
+      <List variant="ul" className={classes.list}>
+        {headerContent.map((item, index) => (
+          <div key={index}>
+            <ListItem variant="li" className={classes.listItem}>
+              <span className={classes.MenuIcons}>{item.icon}</span>
+              <a className={classes.navLink} href={`/${locale}/${item.link}`} style={{ borderBottom: router.pathname.includes(item.link) && "2px solid #3AB15F", borderRadius: "none !important", width: "auto" }} key={index}>
+                {t(`${item.pageName}`)}
+              </a>
+            </ListItem>
+
+            {index !== headerContent.length - 1 && (
+              <ListItem variant="li" className={classes.listItem}>
+                <div className={classes.divider} />
+              </ListItem>
+            )}
+          </div>
+        ))}
+      </List>
+    </Box>
+  );
+
+  const container = window !== undefined ? () => window().document.body : undefined;
+
+  return (
+    <Box sx={{ display: "flex" }}>
+      <AppBar component="nav">
+        <Toolbar className={classes.buttonToolbar}>
+          <Container className={classes.buttonContainer}>
+            <Grid style={{ display: "contents" }} container spacing={2}>
+              <Grid className={classes.scmButtonToolbarBox} item sm={12} md={12}>
+                <ScmLoginButton />
+              </Grid>
+              <Grid className={classes.buttonToolbarBox} item sm={12} md={12}>
+                <LocaleSwitcher />
+                <LoginButton />
+              </Grid>
+            </Grid>
+            {/* <Box className={classes.scmButtonToolbarBox}>
+                            <ScmLoginButton />
+                        </Box>
+                        <Box className={classes.buttonToolbarBox}>
+                            <LocaleSwitcher />
+                            <LoginButton />
+                        </Box> */}
+          </Container>
+        </Toolbar>
+        <Toolbar className={classes.menuToolbar}>
+          <Container className={classes.menuContainer}>
+            <Box sx={{ flexGrow: 1, display: { sm: "block" } }}>
+              <Logo />
+            </Box>
+            <IconButton color="#000" aria-label="open drawer" edge="start" onClick={handleDrawerToggle} sx={{ margin: "0px 16px 0px 16px", display: { lg: "none" } }}>
+              <MenuIcon style={{ margin: "0px 16px 0px 16px", color: "#000", fontSize: "30px" }} />
+            </IconButton>
+
+            <Hidden lgDown implementation="css">
+              <Box>
+                <List variant="ul" className={classes.list}>
+                  {headerContent.map((item, index) => (
+                    <div key={index}>
+                      <ListItem variant="li" className={classes.listItem}>
+                        <a className={classes.navLink} href={`/${locale}/${item.link}`} style={{ borderBottom: router.pathname.includes(item.link) && "2px solid #3AB15F", borderRadius: "none !important", width: "auto" }} key={item.menu}>
+                          {t(`${item.pageName}`)}
+                        </a>
+                        {index !== headerContent.length - 1 && <div className={classes.divider} />}
+                      </ListItem>
+                    </div>
+                  ))}
+                </List>
+              </Box>
+            </Hidden>
+          </Container>
+        </Toolbar>
+      </AppBar>
+      <Hidden lgUp implementation="js">
+        <Box component="nav">
+          <Drawer
+            container={container}
+            variant="temporary"
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            ModalProps={{
+              keepMounted: true, // Better open performance on mobile.
+            }}
+            sx={{
+              display: { xs: "block", lg: "none" },
+              "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
+            }}>
+            {drawer}
+          </Drawer>
+        </Box>
+      </Hidden>
+    </Box>
+  );
+}
+
+NewHeader.propTypes = {
+  window: PropTypes.func,
+};
+
 export default NewHeader;

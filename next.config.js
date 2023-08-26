@@ -28,7 +28,7 @@ module.exports = {
     localeDetection: false,
   },
   images: {
-    unoptimized: true,
+    unoptimized: false,
     domains: ['compunnet.com'],
     remotePatterns: [
       {
