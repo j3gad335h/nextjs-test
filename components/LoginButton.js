@@ -10,7 +10,7 @@ export default function LoginButton() {
     const { t } = useTranslation('common');
     const Url =LoginBaseUrl+`signin?lang=${locale}`
   return (
-    <Link href={Url} target='_blank' className={classes.loginButton} size='medium'>  
+    <a href={Url} target='_blank' className={classes.loginButton} size='medium'>  
     <SvgIcon style={{   left: locale === "ar" ? "10px" : "0px",}} className={classes.svgicon}>
     <path
       id="Arrwo"
@@ -18,7 +18,7 @@ export default function LoginButton() {
       transform="translate(-369.03 -39.004)"
       fill="#1e396c"
     />
-  </SvgIcon>{t('menu.Login')}</Link>
+  </SvgIcon>{t('menu.Login')}</a>
   )
 }
 const useStyles = makeStyles((theme, locale) => ({

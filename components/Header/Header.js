@@ -102,9 +102,9 @@ function Header(props) {
             <div key={index}>
               <ListItem variant="li" className={classes.listItem}>
                 <span className={classes.MenuIcons}>{item.icon}</span>
-                <Link className={classes.navLink} href={`/${locale}/${item.link}`} style={{ borderBottom: router.pathname.includes(item.link) && "2px solid #3AB15F", borderRadius: "none !important", width: "auto", }} key={index}>
+                <a className={classes.navLink} href={`/${locale}/${item.link}`} style={{ borderBottom: router.pathname.includes(item.link) && "2px solid #3AB15F", borderRadius: "none !important", width: "auto", }} key={index}>
                   {t(`${item.pageName}`)}
-                </Link>
+                </a>
               </ListItem>
 
               {index !== headerContent.length - 1 && (
@@ -139,9 +139,9 @@ function Header(props) {
                 {headerContent.map((item, index) => (
                   <div key={index}>
                     <ListItem variant="li" className={classes.listItem}>
-                      <Link className={classes.navLink} href={`/${locale}/${item.link}`} style={{ borderBottom: router.pathname.includes(item.link) && "2px solid #3AB15F", borderRadius: "none !important", width: "auto", }} key={item.menu} >
+                      <a className={classes.navLink} href={`/${locale}/${item.link}`} style={{ borderBottom: router.pathname.includes(item.link) && "2px solid #3AB15F", borderRadius: "none !important", width: "auto", }} key={item.menu} >
                         {t(`${item.pageName}`)}
-                      </Link>
+                      </a>
                       {index !== headerContent.length - 1 && (
                         <div className={classes.divider} />
                       )}

@@ -1,6 +1,5 @@
 @font-face {
   font-family: 'Ample';
-  font-display: swap;
   src: local('Ample'), url(../public/font/Ample-Regular6_0.otf) format('truetype');
 }
 
@@ -29,11 +28,4 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
-
-.lazy-background-image {
-  transition: background-image 0.3s;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }

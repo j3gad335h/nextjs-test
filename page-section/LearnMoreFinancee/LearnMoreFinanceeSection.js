@@ -67,7 +67,7 @@ export default function LearnMoreFinanceeSection() {
                                             <li><Typography className={classes.serviceDiscripition}>{t("learnMoreFinancee.Learn more as a Financee discription4")}</Typography></li>
                                             <li><Typography className={classes.serviceDiscripition}>{t("learnMoreFinancee.Learn more as a Financee discription5")}</Typography></li>
                                             <li><Typography className={classes.serviceDiscripition}>{t("learnMoreFinancee.Learn more as a Financee discription6")}</Typography></li>
-                                            <li className={classes.ArabicHide}><Typography className={classes.serviceDiscripition}><span className={classes.ArabicHide}>{t("learnMoreFinancee.Learn more as a Financee discription7")}</span>&nbsp;<Link className={classes.ArabicHide} href={`/${locale}/selectionProcess`}>{t("learnMoreFinancee.Learn more as a Financee discription8")}</Link>&nbsp;</Typography></li>
+                                            <li className={classes.ArabicHide}><Typography className={classes.serviceDiscripition}><span className={classes.ArabicHide}>{t("learnMoreFinancee.Learn more as a Financee discription7")}</span>&nbsp;<a className={classes.ArabicHide} href={`/${locale}/selectionProcess`}>{t("learnMoreFinancee.Learn more as a Financee discription8")}</a>&nbsp;</Typography></li>
                                             <li><Typography className={classes.serviceDiscripition}>{t("learnMoreFinancee.Learn more as a Financee discription9")}</Typography></li>
                                         </ul>
                                     </Box>

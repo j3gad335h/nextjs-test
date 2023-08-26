@@ -9,7 +9,7 @@ export default function SupplyChainHowSupplyChain() {
     const { locale } = useRouter();
     const { t } = useTranslation('common');
     const theme = useTheme();
-    const veryWideScreen = useMediaQuery(theme.breakpoints.up('sm'), {
+    const veryWideScreen = useMediaQuery(theme.breakpoints.down('md'), {
         noSsr: true,
     });
     const image1 = "/assetsNew/images/seller/graph.webp";
@@ -28,7 +28,7 @@ export default function SupplyChainHowSupplyChain() {
                 <Box py={5}>
                     <Grid container spacing={2}>
                         <Grid className={classes.servicImageeGrid} item xs={12} sm={12} md={12} lg={12} xl={12}>
-                            <Image height={veryWideScreen ? 500 : 300} width={veryWideScreen ? 1500 : 750} alt="finance-icon"  src={locale==='ar'?image1:image2} />
+                            <Image className={classes.servicImage} height={veryWideScreen ? 200 : 500} width={veryWideScreen ? 600 : 1500} alt="finance-icon"  src={locale==='ar'?image1:image2} />
                         </Grid>
                     </Grid>
                     <Grid container spacing={2}>
@@ -110,6 +110,14 @@ const useStyles = makeStyles((theme, locale) => ({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    servicImage: {
+        width: 'auto',
+        height: 'auto',
+        [theme.breakpoints.down('md')]: {
+            height: '250px',
+            width: '650px',
+        },
     },
     serviceGrid: {
         paddingLeft: '0px !important',

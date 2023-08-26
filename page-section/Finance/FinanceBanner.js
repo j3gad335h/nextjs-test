@@ -59,8 +59,8 @@ export default function FinanceBanner() {
                         <ListItem className={classes.modalText}>
                             <FormGroup>
                                 <Typography className={classes.modalTitle}>{t("finance.finaceModalTitle")} </Typography>
-                                <Typography style={{textAlign:locale==='ar'?'right':'left'}} className={classes.modalText}><LocalPhoneIcon className={classes.modalIcon} />{" "} <a className={classes.modalDiscription} href="tel:920004032">920004032</a>{" "}</Typography>
-                                <Typography style={{textAlign:locale==='ar'?'right':'left'}}  className={classes.modalText}><EmailIcon className={classes.modalIcon} />{" "}<a className={classes.modalDiscription} href="mailto:contactus@raqamyah.com">contactus@raqamyah.com</a>{" "}</Typography>
+                                <Typography style={{ textAlign: locale === 'ar' ? 'right' : 'left' }} className={classes.modalText}><LocalPhoneIcon className={classes.modalIcon} />{" "} <a className={classes.modalDiscription} href="tel:920004032">920004032</a>{" "}</Typography>
+                                <Typography style={{ textAlign: locale === 'ar' ? 'right' : 'left' }} className={classes.modalText}><EmailIcon className={classes.modalIcon} />{" "}<a className={classes.modalDiscription} href="mailto:contactus@raqamyah.com">contactus@raqamyah.com</a>{" "}</Typography>
                                 <br />
                                 <Box className={classes.modalButtonBox}>
                                     <Button onClick={handleClose} className={classes.modalButton}>{t("finance.finaceModalButton")}</Button>
@@ -80,7 +80,7 @@ const useStyles = makeStyles((theme, locale) => ({
         fontSize: '18px',
         fontWeight: 'bold',
         color: "#fff",
-        lineHeight:" 1.5 !important" ,
+        lineHeight: " 1.5 !important",
         marginBottom: theme.spacing(2),
         marginTop: theme.spacing(0),
         [theme.breakpoints.up('xs')]: {
@@ -122,7 +122,7 @@ const useStyles = makeStyles((theme, locale) => ({
 
     },
     Button: {
-        width:"max-content",
+        width: "max-content",
         background: "#35A052",
         textDecoration: 'none',
         color: '#fff',
@@ -138,7 +138,7 @@ const useStyles = makeStyles((theme, locale) => ({
             color: '#fff',
             background: "#35A052",
             pointerEvent: "all",
-          
+
         },
         [theme.breakpoints.up('sm')]: {
             background: "#35A052",
@@ -156,14 +156,15 @@ const useStyles = makeStyles((theme, locale) => ({
                 color: '#fff',
                 background: "#35A052",
                 pointerEvent: "all",
-              
+
             },
         },
         [theme.breakpoints.down('sm')]: {
             background: "#35A052",
-        textDecoration: 'none',
-        color: '#fff',
-        fontSize: '10px',
+            textDecoration: 'none',
+            color: '#fff',
+            width: "inherit",
+            fontSize: '10px',
             paddingLeft: '12px',
             paddingRight: '12px',
             paddingTop: '2px',
@@ -175,7 +176,7 @@ const useStyles = makeStyles((theme, locale) => ({
                 color: '#fff',
                 background: "#35A052",
                 pointerEvent: "all",
-              
+
             },
         },
     },
@@ -275,9 +276,9 @@ const useStyles = makeStyles((theme, locale) => ({
     modalContainer: {
         padding: "20px",
     },
-    modalText:{
+    modalText: {
         textAlign: locale === 'ar' ? "right" : "left",
-        padding:'0px',
+        padding: '0px',
     },
     modalTitle: {
         fontWeight: "500",

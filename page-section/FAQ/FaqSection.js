@@ -317,7 +317,7 @@ export default function FAQSection() {
                                 </AccordionSummary>
                                 <Divider />
                                 <AccordionDetails className={classes.AccordionDetails}>
-                                    <Typography className={classes.AccordionDetails}>{t("faq.Tab 1 Accordion Ans15 1")}&nbsp;<Link href={`/${locale}/selectionProcess`}>{t("faq.Tab 1 Accordion Ans15 2")}</Link></Typography>
+                                    <Typography className={classes.AccordionDetails}>{t("faq.Tab 1 Accordion Ans15 1")}&nbsp;<a href={`/${locale}/selectionProcess`}>{t("faq.Tab 1 Accordion Ans15 2")}</a></Typography>
                                 </AccordionDetails>
                             </Accordion>
                             <Accordion className={classes.Accordion}>
@@ -335,7 +335,7 @@ export default function FAQSection() {
                                 </AccordionSummary>
                                 <Divider />
                                 <AccordionDetails className={classes.AccordionDetails}>
-                                    <Typography className={classes.AccordionDetails}>{t("faq.Tab 1 Accordion Ans17 1")} &nbsp;<Link href={`/${locale}/recoveryProcess`} >{t("faq.Tab 1 Accordion Ans17 2")}</Link> </Typography>
+                                    <Typography className={classes.AccordionDetails}>{t("faq.Tab 1 Accordion Ans17 1")} &nbsp;<a href={`/${locale}/recoveryProcess`} >{t("faq.Tab 1 Accordion Ans17 2")}</a> </Typography>
                                 </AccordionDetails>
                                 <AccordionDetails className={classes.AccordionDetails}>
                                     {t("faq.Tab 1 Accordion Ans17 3")}
@@ -437,7 +437,7 @@ export default function FAQSection() {
                                     {t("faq.Tab 2 Accordion Ans5 1")}
                                 </AccordionDetails>
                                 <AccordionDetails className={classes.AccordionDetails}>
-                                    <Typography className={classes.AccordionDetails}>{t("faq.Tab 2 Accordion Ans5 2")}&nbsp;<Link href={`/${locale}/selectionProcess`} >{t("faq.Tab 2 Accordion Ans5 3")}</Link></Typography>
+                                    <Typography className={classes.AccordionDetails}>{t("faq.Tab 2 Accordion Ans5 2")}&nbsp;<a href={`/${locale}/selectionProcess`} >{t("faq.Tab 2 Accordion Ans5 3")}</a></Typography>
 
                                 </AccordionDetails>
                             </Accordion>

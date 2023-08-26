@@ -26,7 +26,7 @@ export default function RecoveryProcessSection() {
                         <Typography className={classes.discription}>{t("recovery.Recovery Process discription2")}</Typography>
                     </li>
                     <li>
-                        <Typography className={classes.discription}>{t("recovery.Recovery Process discription3")}&nbsp;<Link href={`/${locale}/debtRescheduling`} >{t("recovery.Recovery Process discription4")}</Link>&nbsp;
+                        <Typography className={classes.discription}>{t("recovery.Recovery Process discription3")}&nbsp;<a href={`/${locale}/debtRescheduling`} >{t("recovery.Recovery Process discription4")}</a>&nbsp;
                             <span className={classes.ArabicHide}>{t("recovery.Recovery Process discription5")}</span>
                         </Typography>
                     </li>

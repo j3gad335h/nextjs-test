@@ -77,7 +77,7 @@ export default function FinanceMadeSimple() {
             <Container className={classes.ButtonContainer}>
                 <Grid className={classes.ButtonMainGrid} container spacing={2}>
                     <Grid className={classes.ButtonGrid} item xs={12} sm={12} md={12} lg={12} xl={12}>
-                        <Button><Link className={classes.buttonLink} href={`/${locale}/learnMoreFinancer`}>{t('finance.finaceQualitySmesButton')}</Link></Button>
+                        <Button><a className={classes.buttonLink} href={`/${locale}/learnMoreFinancer`}>{t('finance.finaceQualitySmesButton')}</a></Button>
                     </Grid>
                 </Grid>
             </Container>

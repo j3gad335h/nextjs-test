@@ -118,7 +118,7 @@ export default function LearnMoreFinancerSection() {
                             <Grid className={classes.GridBox} item xs={12} sm={6} md={9}>
                                 <Box mb={2}>
                                     <Typography className={classes.serviceTitle}>{t("learnMoreFinancer.Learn more as a Financer tittle6")}</Typography>
-                                    <Typography className={classes.serviceDiscripition}>{t("learnMoreFinancer.Learn more as a Financer discription33")}<Link className={classes.ArabicHide} href={`/${locale}/recoveryProcess`} >{t("learnMoreFinancer.Learn more as a Financer discription34")}</Link>&nbsp;{t("learnMoreFinancer.Learn more as a Financer discription35")}</Typography>
+                                    <Typography className={classes.serviceDiscripition}>{t("learnMoreFinancer.Learn more as a Financer discription33")}<a className={classes.ArabicHide} href={`/${locale}/recoveryProcess`} >{t("learnMoreFinancer.Learn more as a Financer discription34")}</a>&nbsp;{t("learnMoreFinancer.Learn more as a Financer discription35")}</Typography>
                                 </Box>
                             </Grid>
                         </Grid>
@@ -132,7 +132,7 @@ export default function LearnMoreFinancerSection() {
                             <Grid className={classes.GridBox} item xs={12} sm={6} md={9}>
                                 <Box mb={2}>
                                     <Typography className={classes.serviceTitle}>{t("learnMoreFinancer.Learn more as a Financer tittle7")}</Typography>
-                                    <Typography className={classes.serviceDiscripition}>{t("learnMoreFinancer.Learn more as a Financer discription36")}&nbsp;<Link href={`/${locale}/diversification`}>{t("learnMoreFinancer.Learn more as a Financer discription37")}</Link>&nbsp;{t("learnMoreFinancer.Learn more as a Financer discription38")}</Typography>
+                                    <Typography className={classes.serviceDiscripition}>{t("learnMoreFinancer.Learn more as a Financer discription36")}&nbsp;<a href={`/${locale}/diversification`}>{t("learnMoreFinancer.Learn more as a Financer discription37")}</a>&nbsp;{t("learnMoreFinancer.Learn more as a Financer discription38")}</Typography>
                                 </Box>
                             </Grid>
                         </Grid>
@@ -147,7 +147,7 @@ export default function LearnMoreFinancerSection() {
                                 <Box mb={2}>
                                     <Typography className={classes.serviceTitle}>{t("learnMoreFinancer.Learn more as a Financer tittle8")}</Typography>
                                     <Typography className={classes.serviceDiscripition}>{t("learnMoreFinancer.Learn more as a Financer discription39")}</Typography>
-                                    <Typography className={classes.serviceDiscripition}><Link href={`/${locale}/recoveryProcess`}>{t("learnMoreFinancer.Learn more as a Financer discription40")}</Link></Typography>
+                                    <Typography className={classes.serviceDiscripition}><a href={`/${locale}/recoveryProcess`}>{t("learnMoreFinancer.Learn more as a Financer discription40")}</a></Typography>
                                 </Box>
                             </Grid>
                         </Grid>

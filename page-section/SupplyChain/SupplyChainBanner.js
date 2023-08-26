@@ -23,9 +23,10 @@ const useStyles = makeStyles((theme, locale) => ({
         marginTop: theme.spacing(0),
         [theme.breakpoints.up('xs')]: {
             textAlign: 'initial',
-            fontSize: '18px',
+            fontSize: '16px',
             fontWeight: 'bold',
             color: "#fff",
+            lineHeight:" 1.3 !important" ,
             marginBottom: theme.spacing(2),
             marginTop: theme.spacing(0),
         },

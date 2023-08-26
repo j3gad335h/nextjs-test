@@ -54,7 +54,7 @@ export default function Finance() {
           <Grid container spacing={2}>
             <Grid className={classes.WariningGrid} item xs={12} sm={12} md={12} lg={12} xl={12}>
               <Typography className={classes.WariningTextTitle}>{t('finance.finaceQualityWariningSpan')} <span className={classes.WariningTextDiscription}>{t('finance.finaceQualityWariningMsg1')}</span>
-                <span className={classes.WariningTextDiscription}> <Link href={`/${locale}/selectionProcess`}>{t('finance.finaceQualityWariningMsg2')}</Link> </span>
+                <span className={classes.WariningTextDiscription}> <a href={`/${locale}/selectionProcess`}>{t('finance.finaceQualityWariningMsg2')}</a> </span>
                 <span className={classes.WariningTextDiscription}>{t('finance.finaceQualityWariningMsg3')}</span>
               </Typography>
             </Grid>

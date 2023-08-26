@@ -119,7 +119,7 @@ export default function HomeWereHere() {
                     <Grid className={classes.ButtonGrid} item xs={12} sm={12} md={12} lg={12} xl={12}>
                         <Button className={classes.Button} onClick={handleClickOpen}>{t('home.get start button')}</Button>
                         <span className={classes.ButtonOr}>{t('home.Or')}</span>
-                        <Link href={`/${locale}/learnMoreFinancee`} className={classes.ButtonMore}>{t('home.Learn More button')}</Link>
+                        <a href={`/${locale}/learnMoreFinancee`} className={classes.ButtonMore}>{t('home.Learn More button')}</a>
                     </Grid>
                 </Grid>
             </Container>

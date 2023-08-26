@@ -1,6 +1,7 @@
 import makeStyles from '@mui/styles/makeStyles';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from "next/router";
 const useStyles = makeStyles((theme) => ({
   logo: {
     width: '120px',
@@ -12,9 +13,9 @@ const useStyles = makeStyles((theme) => ({
 function Logo() {
   const logo = "/assetsNew/images/logo/logo.webp";
   const classes = useStyles();
-
+  const { locale } = useRouter();
   return (
-    <Link href="/">
+    <a href={`/${locale}`}>
       <Image
         width={120}
         height={50}
@@ -22,7 +23,7 @@ function Logo() {
         className={classes.logo} // Updated class name to "logo"
         alt="Logo"
       />
-    </Link>
+    </a>
   );
 }
 

@@ -15,7 +15,9 @@ const HomeService = dynamic(() => import('../page-section/Home/HomeService'));
 const HomeWereHere = dynamic(() => import('../page-section/Home/HomeWereHere'));
 const HomeFinanceSolution = dynamic(() => import('../page-section/Home/HomeFinanceSolution'));
 const HomeHowItWorks = dynamic(() => import('../page-section/Home/HomeHowItWorks'));
-
+// const HomeBanner = dynamic(() => import('../page-section/Home/HomeBanner'), {
+//   loading: () => <p>Loading...</p>, // This is the loading indicator
+// });
 const { publicRuntimeConfig } = getConfig();
 export default function Home() {
   const classes = useStyles();

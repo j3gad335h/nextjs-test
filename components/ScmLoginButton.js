@@ -9,7 +9,7 @@ export default function ScmLoginButton() {
     const { t } = useTranslation('common');
     const LoginUrl = `https://scm.raqamyah.com/app/session/signin/?lang=${locale}`;
   return (
-    <Link href={LoginUrl} target='_blank' className={classes.loginButton} size='medium'>  
+    <a href={LoginUrl} target='_blank' className={classes.loginButton} size='medium'>  
     <SvgIcon style={{   left: locale === "ar" ? "10px" : "0px",}} className={classes.svgicon}>
     <path
       id="Arrwo"
@@ -17,7 +17,7 @@ export default function ScmLoginButton() {
       transform="translate(-369.03 -39.004)"
       fill="#1e396c"
     />
-  </SvgIcon>{t('menu.ScmLogin')}</Link>
+  </SvgIcon>{t('menu.ScmLogin')}</a>
   )
 }
 const useStyles = makeStyles((theme, locale) => ({

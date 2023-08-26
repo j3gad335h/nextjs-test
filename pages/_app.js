@@ -1,28 +1,21 @@
 import "@fontsource/tajawal";
-import Router from "next/router";
 import { CssBaseline } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@mui/system";
 import { appWithTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { Suspense, useEffect, useState } from "react";
 import ReactGA from "react-ga4";
 import ScrollToTop from "react-scroll-to-top";
-import "../styles/Home.module.css";
 import "../styles/fonts.css";
-import Loader from "../components/Loader/Loader";
 const Footer = dynamic(() => import("../components/Footer/Footer"));
 const FooterCopyRights = dynamic(() => import("../components/Footer/FooterCopyRights"));
-const NewHeader = dynamic(() => import("../components/Header/NewHeader"));
+import NewHeader from "../components/Header/NewHeader"; // Normal import
 
 function App({ Component, pageProps }) {
   const { locale } = useRouter();
-  const router = useRouter();
-  const [loading, setLoading] = useState(false);
-  const [fontsLoaded, setFontsLoaded] = useState(false);
   //UA-249956445-1//
   //UA-250103509-1//
   // G-JBD2HNXM4S//
@@ -34,27 +27,7 @@ function App({ Component, pageProps }) {
   useEffect(() => {
     document.documentElement.dir = locale === "ar" ? "rtl" : "ltr";
   }, [locale]);
-  useEffect(() => {
-    Router.events.on("routeChangeStart", () => setLoading(true));
-    Router.events.on("routeChangeComplete", () => setLoading(false));
-    Router.events.on("routeChangeError", () => setLoading(false));
-    return () => {
-      Router.events.off("routeChangeStart", () => setLoading(true));
-      Router.events.off("routeChangeComplete", () => setLoading(false));
-      Router.events.off("routeChangeError", () => setLoading(false));
-    };
-  }, [Router.events]);
-  useEffect(() => {
-    // Font is considered loaded when "document.fonts" has been populated
-    if (document.fonts && document.fonts.status === "loaded") {
-      setFontsLoaded(true);
-    } else {
-      // If fonts aren't immediately loaded, listen for the "fontloadingdone" event
-      document.fonts.addEventListener("loadingdone", () => {
-        setFontsLoaded(true);
-      });
-    }
-  }, []);
+
   const theme = createTheme({
     typography: {
       fontFamily: locale === "ar" ? "Tajawal" : "Ample",
@@ -86,35 +59,25 @@ function App({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content="Crowdfunding in Saudi Arabia | SME Crowd Lending in Saudi Arabia" />
+        {/* Preload the CSS file */}
+        <link rel="preload" href="/fonts.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="/font/Ample-Regular6_0.otf" as="font" type="font/woff2" crossorigin="anonymous" />
+        {/* Preload the JavaScript file */}
+        <link rel="preload" href="/styles/Header/HeaderStyle.js" as="script" />
+        <link rel="preload" href="/styles/pages/howitworks/howItWorkStyle.js" as="script" />
+        <noscript>
+          <link rel="stylesheet" href="/fonts.css" />
+        </noscript>
       </Head>
-      <CssBaseline />
-      <div className="page-content">
-        {/* Content that doesn't affect layout */}
-        <div className="header-container">{fontsLoaded && <NewHeader />}</div>
-        {/* Main content */}
-        <div className="main-content">
-          <Suspense>
-            {/* Loading state for main content */}
-            {loading || !fontsLoaded ? <Loader /> : <Component {...pageProps} />}
-          </Suspense>
-        </div>
-        {/* Footer */}
-        <div className="footer-container">
-          {fontsLoaded && <FooterCopyRights />}
-          {fontsLoaded && <Footer />}
-          {fontsLoaded && <ScrollToTop smooth color="#37A753" />}
-        </div>
+      <div>
+        <CssBaseline />
+        <NewHeader />
+        <Component {...pageProps} />
+        <Footer />
+        <FooterCopyRights />
+        <ScrollToTop smooth color="#37A753" />
       </div>
     </ThemeProvider>
   );
 }
 export default appWithTranslation(App);
-
-export async function getStaticProps({ locale }) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ["common", "footer"])),
-      // Will be passed to the page component as props
-    },
-  };
-}

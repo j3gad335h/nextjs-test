@@ -13,31 +13,31 @@ export default function LegalData() {
                 <Typography variant='h1' className={classes.Title}>{t("legal.Legal tittle")}</Typography>
                 <ul>
                     <li>
-                        <Link href={`${locale}/termsAndConditions`} className={classes.homepragraph}>
+                        <a href={`/${locale}/termsAndConditions`} className={classes.homepragraph}>
                             {t("legal.General Terms and Conditions")}
-                        </Link>
+                        </a>
                     </li>
                     <li>
-                        <Link
+                        <a
                             href={`/${locale}/financerTermsConditions`}
                             className={classes.homepragraph}
                         >
                             {t("legal.Financers Terms and Conditions")}
-                        </Link>
+                        </a>
                     </li>
                     <li>
-                        <Link
-                            href={`${locale}/financeeDebtorTermsConditions`}
+                        <a
+                            href={`/${locale}/financeeDebtorTermsConditions`}
                             className={classes.homepragraph}
                         >
                             {t("legal.Financee (debtor) Terms and Conditions")}
-                        </Link>
+                        </a>
                     </li>
                     <li>
                         {" "}
-                        <Link href={`${locale}/privacyPolicy`} className={classes.homepragraph}>
+                        <a href={`/${locale}/privacyPolicy`} className={classes.homepragraph}>
                             {t("legal.Privacy Policy")}
-                        </Link>
+                        </a>
                     </li>
                 </ul>
             </Container>

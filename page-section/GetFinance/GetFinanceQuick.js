@@ -104,7 +104,7 @@ export default function GetFinanceQuick() {
             <Container className={classes.ButtonContainer}>
                 <Grid className={classes.ButtonMainGrid} container spacing={2}>
                     <Grid className={classes.ButtonGrid} item xs={12} sm={12} md={12} lg={12} xl={12}>
-                        <Button style={{        borderRadius: '25px',}}><Link className={classes.buttonLink}  href={`/${locale}/learnMoreFinancee`}>{t('getFinance.quickButton')}</Link></Button>
+                        <Button style={{ borderRadius: '25px',}}><a className={classes.buttonLink}  href={`/${locale}/learnMoreFinancee`}>{t('getFinance.quickButton')}</a></Button>
                     </Grid>
                 </Grid>
             </Container>

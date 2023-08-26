@@ -108,59 +108,60 @@ export default function Footer() {
           top: 0,
           behavior: "smooth",
         });
-      };
+      };const SamaEnLink = "https://www.sama.gov.sa/en-us/licenseentities/pages/financelicencedentities.aspx";
+      const SamaArLink = "https://www.sama.gov.sa/ar-sa/licenseentities/pages/financelicencedentities.aspx"
     return (
         <footer className={classes.footer}>
             <Box className={classes.footer_box}>
                 <Grid container direction="row">
                     <Grid item xs={12} md={4} containerdirection="column" className={classes.footer_container}>
-                        <Link href={`/${locale}`}>
+                        <a href={`/${locale}`}>
                             <Image src={logo} alt="Logo" width={120} height={60}/>
-                        </Link>
+                        </a>
                         <div className={classes.right}>
-                            <Link aria-label="facebook-link" target="_blank" href="https://www.facebook.com/raqamyahksa/">
+                            <a aria-label="facebook-link" target="_blank" href="https://www.facebook.com/raqamyahksa/">
                                 <FacebookIcon className={classes.icon} />
-                            </Link>
-                            <Link aria-label="twitter-link" target="_blank" href="https://twitter.com/raqamyah">
+                            </a>
+                            <a aria-label="twitter-link" target="_blank" href="https://twitter.com/raqamyah">
                                 <TwitterIcon className={classes.icon} />
-                            </Link>
-                            <Link
+                            </a>
+                            <a
                                 aria-label="linkedin-link" target="_blank"
                                 href="https://www.linkedin.com/company/raqamyah/?viewAsMember=true">
                                 <LinkedInIcon className={classes.icon} />
-                            </Link>
-                            <Link aria-label="instagram-link" target="_blank" href="https://www.instagram.com/raqamyahksa/">
+                            </a>
+                            <a aria-label="instagram-link" target="_blank" href="https://www.instagram.com/raqamyahksa/">
                                 <InstagramIcon className={classes.icon} />
-                            </Link>
+                            </a>
                         </div>
                         <Typography className={classes.footer_pra}>{t("footer.Footer Address1")}</Typography>
                         <Typography className={classes.footer_pra}>{t("footer.Footer Address2")}</Typography>
                         <Typography className={classes.footer_pra}>{t("footer.Footer Address3")}</Typography>
                     </Grid>
                     <Grid item xs={12} md={2} container direction="column" className={classes.footer_container}>
-                        <Link className={classes.footer_text} href={`/${locale}/about`}>{" "}{t("menu.About")}</Link>
-                        <Link className={classes.footer_text} href={`/${locale}/getFinanced`}>{" "}{t("menu.Get Financed")}{" "}</Link>
-                        <Link className={classes.footer_text} href={`/${locale}/finance`}>{" "}{t("menu.Finance")}{" "}</Link>
-                        <Link className={classes.footer_text} href={`/${locale}/posFinance`}>{" "}{t("menu.Pos Finance")}</Link>
-                        <Link className={classes.footer_text} href={`/${locale}/howItWorks`}>{" "}{t("menu.How It Works")}</Link>
-                        <Link className={classes.footer_text} href={`/${locale}/contactUs`}>{" "}{t("menu.Contact")}{" "}</Link>
+                        <a className={classes.footer_text} href={`/${locale}/about`}>{" "}{t("menu.About")}</a>
+                        <a className={classes.footer_text} href={`/${locale}/getFinanced`}>{" "}{t("menu.Get Financed")}{" "}</a>
+                        <a className={classes.footer_text} href={`/${locale}/finance`}>{" "}{t("menu.Finance")}{" "}</a>
+                        <a className={classes.footer_text} href={`/${locale}/posFinance`}>{" "}{t("menu.Pos Finance")}</a>
+                        <a className={classes.footer_text} href={`/${locale}/howItWorks`}>{" "}{t("menu.How It Works")}</a>
+                        <a className={classes.footer_text} href={`/${locale}/contactUs`}>{" "}{t("menu.Contact")}{" "}</a>
                     </Grid>
                     <Grid item xs={12} md={3} container direction="column" className={classes.footer_container}>
-                        <Link className={classes.footer_text} href={`/${locale}/legal`}>{t("menu.Legal")}</Link>
-                        <Link className={classes.footer_text} href={`/${locale}/learnMoreFinancer`}>{t("menu.Learn more as a Financer")}</Link>
-                        <Link className={classes.footer_text} href={`/${locale}/learnMoreFinancee`}>{t("menu.Learn more as a Financee (Debtor)")}</Link>
-                        <Link className={classes.footer_text} href={`/${locale}/faq`}>{t("menu.FAQ")}</Link>
-                        <Link className={classes.footer_text} href={locale === 'ar' ? BaseUrl + 'assetsNew/images/pdf/حماية%20العملاء.pdf' : BaseUrl + 'assetsNew/images/pdf/Consumer_Protection_EN.pdf'} target="_blank" >{t("menu.Consumer protection")}</Link>
-                        <Link className={classes.footer_text} href={`/${locale}/consumerProtection`}>{t("menu.Complains and suggestions")}</Link>
+                        <a className={classes.footer_text} href={`/${locale}/legal`}>{t("menu.Legal")}</a>
+                        <a className={classes.footer_text} href={`/${locale}/learnMoreFinancer`}>{t("menu.Learn more as a Financer")}</a>
+                        <a className={classes.footer_text} href={`/${locale}/learnMoreFinancee`}>{t("menu.Learn more as a Financee (Debtor)")}</a>
+                        <a className={classes.footer_text} href={`/${locale}/faq`}>{t("menu.FAQ")}</a>
+                        <a className={classes.footer_text} href={locale === 'ar' ? BaseUrl + 'assetsNew/images/pdf/حماية%20العملاء.pdf' : BaseUrl + 'assetsNew/images/pdf/Consumer_Protection_EN.pdf'} target="_blank" >{t("menu.Consumer protection")}</a>
+                        <a className={classes.footer_text} href={`/${locale}/consumerProtection`}>{t("menu.Complains and suggestions")}</a>
                         
                     </Grid>
                     <Grid item xs={12} md={3} container direction="column" className={classes.footer_container}>
                         <Typography className={classes.footer_pra}>{t("footer.Footer Discription1")}</Typography>
                         <Typography className={classes.footer_pra}>{t("footer.Footer Discription2")}</Typography>
                         <Typography className={classes.footer_pra}>{t("footer.Footer Discription3")}&nbsp;<span>  
-                            <Link className={classes.footer_praClick} target="_blank" aria-label="sama-link" href="https://www.sama.gov.sa/ar-sa/licenseentities/pages/financelicencedentities.aspx">
+                            <a className={classes.footer_praClick} target="_blank" aria-label="sama-link" href={locale==='ar'?SamaArLink:SamaEnLink}>
                                 {t("footer.Footer Discription4")}
-                            </Link></span>
+                            </a></span>
                         </Typography>
                         <Grid className={classes.footerIconsContainer}>
                             <Grid item xs={12} md={6}>
